@@ -19,4 +19,4 @@ app.use('/', indexRoute);
 
 app.listen(PORT, function(){
     console.log('Example app listening on port', PORT);
-})
+});
