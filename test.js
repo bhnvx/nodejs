@@ -1,19 +1,8 @@
-var sayNode = function(){
-    console.log('Node');
+async function getUser() {
+    try {
+        const res  = await axios.get('/users');
+        const users = res.data;
+        const list = document.getElementById('list');
+        list.innerHTML = '';
+    };
 };
-
-var es = 'ES';
-
-var oldObject = {
-    sayJS: function(){
-        console.log('JS');
-    },
-    sayNode: sayNode,
-};
-
-oldObject[es+6] = 'Fantasrtic';
-
-oldObject.sayJS();
-
-oldObject.sayNode();
-console.log(oldObject.ES6);
