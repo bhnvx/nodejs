@@ -2,7 +2,7 @@ const { render } = require('ejs');
 const express = require('express');
 const router = express.Router();
 
-const crypto = requrie("crypto");
+const crypto = require('crypto');
 
 const User = require("../models/user");
 const mongoose = require("mongoose");
@@ -57,7 +57,7 @@ passport.use(new LocalStrategy({
     passReqToCallback: true
 },
 function(req, email, password, done){
-    User.findOne({email: email, password: cryto.createHash('sha512').update(password).digset('base64')}, function(err, user){
+    User.findOne({email: email, password: crypto.createHash('sha512').update(password).digest('base64')}, function(err, user){
         if(err){
             throw err;
         } else if (!user){
