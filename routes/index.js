@@ -2,6 +2,9 @@ const { render } = require('ejs');
 const express = require('express');
 const router = express.Router();
 
+var app = express();
+app.use(express.static(__dirname + '/public'));
+
 const crypto = require('crypto');
 
 const User = require("../models/user");
