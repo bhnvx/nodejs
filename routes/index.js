@@ -4,6 +4,7 @@ const router = express.Router();
 
 var app = express();
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/node_midules/jquery/dist'));
 
 const crypto = require('crypto');
 
@@ -12,6 +13,7 @@ const mongoose = require("mongoose");
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const exp = require('constants');
 
 passport.serializeUser(function(user, done){
     done(null, user);
