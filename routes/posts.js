@@ -8,20 +8,20 @@ router.get('/', function(req, res){
     .sort('-createdat')
     .exec(function(err, posts){
         if(err) return res.json(err);
-        res.render('posts/index', {posts: posts});
+        res.render('/posts/index', {posts: posts});
     });
 });
 
 // New
 router.get('/new', function(req, res){
-    res.render('posts/new');
+    res.render('/posts/new');
 });
 
 // Create
 router.get('/create', function(req, res){
     Post.create(req.body, function(err, post){
         if(err) return res.json(err);
-        res.render('/posts');
+        res.redirect('/posts');
     });
 });
 
@@ -29,7 +29,7 @@ router.get('/create', function(req, res){
 router.get('/:id', function(req, res){
     Post.findOne({_id: req.params.id}, function(err, post){
         if(err) return res.json(err);
-        res.render('posts/show', {post: post});
+        res.render('/posts/show', {post: post});
     });
 });
 
@@ -37,7 +37,7 @@ router.get('/:id', function(req, res){
 router.get('/:id/edit', function(req, res){
     Post.findOne({_id: req.params.id}, function(err, post){
         if(err) return res.json(err);
-        res.render('posts/edit', {post: post});
+        res.render('/posts/edit', {post: post});
     });
 });
 
