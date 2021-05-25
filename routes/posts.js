@@ -18,7 +18,7 @@ router.get('/new', function(req, res){
 });
 
 // Create
-router.get('/create', function(req, res){
+router.get('/', function(req, res){
     Post.create(req.body, function(err, post){
         if(err) return res.json(err);
         res.redirect('/posts');
